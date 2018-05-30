@@ -40,7 +40,49 @@ public class JContactBookController {
         this.contacts.get(index).setNumbers(numbers);
     }
 
+    public void editContactByName (String nameOld, String nameNew, ArrayList<String> numbers) {
+        for (Contact contact : contacts)
+            if (contact.getName().equals(nameOld)) {
+                contact.setName(nameNew);
+                contact.setNumbers(numbers);
+                return;
+            }
+    }
+
     public void deleteContact(int index) {
         this.contacts.remove(index);
+    }
+
+    public void deleteContactByName (String name) {
+        for (Contact contact : contacts)
+            if (contact.getName().equals(name)) {
+                contacts.remove(contact);
+                return;
+            }
+    }
+
+    public ArrayList<Contact> searchByName (String name) {
+        ArrayList<Contact> result = new ArrayList<>();
+
+        for (Contact contact : contacts)
+            if (contact.getName().contains(name) || contact.getName().equals(name))
+                result.add(contact);
+
+        return result;
+    }
+
+    public ArrayList<Contact> searchByNumber (String number) {
+        ArrayList<Contact> result = new ArrayList<>();
+
+        for (Contact contact : contacts)
+            for (String num : contact.getNumbers())
+                if (num.equals(number) || num.contains(number))
+                    result.add(contact);
+
+        return result;
+    }
+
+    public String toString() {
+        return contacts.toString();
     }
 }

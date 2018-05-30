@@ -43,13 +43,12 @@ public class Contact {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contact contact = (Contact) o;
-        return name.equals(contact.name) &&
-                numbers.equals(contact.numbers);
+        return name.equals(contact.name);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode() + numbers.hashCode();
+        return name.hashCode();
     }
 
     @Override
