@@ -2,6 +2,8 @@ package ua.com.kundikprojects.Lab1;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 class JUpdateContact extends JFrame {
 
@@ -61,7 +63,12 @@ class JUpdateContact extends JFrame {
                 return;
             }
 
-            JContactBook.editEntry(new Contact(_name, _number));
+            _number = _number.replace("[", "");
+            _number = _number.replace("]", "");
+
+            ArrayList<String> numbers = new ArrayList<>(Arrays.asList(_number.split(",")));
+
+            JContactBook.editEntry(new Contact(_name, numbers));
             this.setVisible(false);
             this.dispose();
         });

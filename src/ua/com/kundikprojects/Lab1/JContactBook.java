@@ -3,6 +3,8 @@ package ua.com.kundikprojects.Lab1;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class JContactBook extends JFrame {
@@ -37,6 +39,7 @@ public class JContactBook extends JFrame {
         JButton jButton2 = new JButton("Edit");
         JButton jButton3 = new JButton("Delete");
         JButton jButton4 = new JButton("Search");
+        JButton jButton5 = new JButton("Refresh");
 
         JPanel jPanel2 = new JPanel(new FlowLayout());
 
@@ -44,15 +47,14 @@ public class JContactBook extends JFrame {
         jPanel2.add(jButton2);
         jPanel2.add(jButton3);
         jPanel2.add(jButton4);
+        jPanel2.add(jButton5);
 
         jButton1.addActionListener(e -> new JAddContact().setVisible(true));
         jButton2.addActionListener(e -> new JUpdateContact(jTable.getValueAt(getSelectedRow(), 0).toString(),
                 jTable.getValueAt(getSelectedRow(), 1).toString()).setVisible(true));
         jButton3.addActionListener(e -> removeEntry());
-        jButton4.addActionListener(e -> {
-            setVisible(true);
-            this.dispose();
-        });
+        jButton4.addActionListener(e -> new JSearchContact().setVisible(true));
+        jButton5.addActionListener(e -> update());
 
         jPanel1.add(jPanel2, BorderLayout.SOUTH);
         jPanel1.setPreferredSize(new Dimension(750, 300));
@@ -99,7 +101,10 @@ public class JContactBook extends JFrame {
     }
 
     private static void removeAllRows() {
-        for (int i = 0; i < rowCounter; ++i)
+
+        System.out.println(model.getRowCount());
+
+        for (int i = model.getRowCount() - 1; i >= 0; --i)
             model.removeRow(i);
         rowCounter = 0;
     }
@@ -111,8 +116,15 @@ public class JContactBook extends JFrame {
         rowCounter = controller.getContacts().size();
     }
 
-    public static void searchedEntry(ArrayList<Contact> contacts) {
+    public static void searchedEntry(String name, String number) {
         removeAllRows();
+
+        ArrayList<Contact> contacts;
+        if (name == null)
+            contacts = controller.searchByNumber(number);
+        else
+            contacts = controller.searchByName(name);
+
         rowCounter = contacts.size();
         for (Contact contact : contacts)
             model.addRow(new Object[]{contact.getName(), contact.getNumbers().toString()});

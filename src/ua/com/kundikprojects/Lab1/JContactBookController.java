@@ -74,11 +74,14 @@ public class JContactBookController {
     public ArrayList<Contact> searchByNumber (String number) {
         ArrayList<Contact> result = new ArrayList<>();
 
+        System.out.println("Here");
+
         for (Contact contact : contacts)
             for (String num : contact.getNumbers())
                 if (num.equals(number) || num.contains(number))
                     result.add(contact);
 
+        System.out.println(result.toString());
         return result;
     }
 

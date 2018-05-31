@@ -61,7 +61,7 @@ class JAddContact extends JFrame {
                 return;
             }
 
-            ArrayList<String> numbers = new ArrayList<String>(Arrays.asList(number.split(", ")));
+            ArrayList<String> numbers = new ArrayList<>(Arrays.asList(number.split(",")));
 
             JContactBook.addEntry(new Contact(name, numbers));
             this.setVisible(false);
