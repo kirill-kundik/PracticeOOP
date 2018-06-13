@@ -97,7 +97,7 @@ public class FileChooser extends JPanel implements ActionListener {
     }
 
     /**
-     * Create the GUI and show it.  For thread safety,
+     * Create the JDragAndDropList and show it.  For thread safety,
      * this method should be invoked from the
      * event dispatch thread.
      */
@@ -116,7 +116,7 @@ public class FileChooser extends JPanel implements ActionListener {
 
     public static void main(String[] args) {
         //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
+        //creating and showing this application's JDragAndDropList.
         SwingUtilities.invokeLater(() -> {
             //Turn off metal's use of bold fonts
             UIManager.put("swing.boldMetal", Boolean.FALSE);
