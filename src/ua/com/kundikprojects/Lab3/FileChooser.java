@@ -9,12 +9,12 @@ import java.io.File;
 public class FileChooser extends JPanel implements ActionListener {
 
     static private final String newline = "\n";
-    JButton openButton, saveButton;
-    JTextArea log;
-    JFileChooser fc;
-    String path;
+    private JButton openButton, saveButton;
+    private JTextArea log;
+    private JFileChooser fc;
+    private String path;
 
-    public FileChooser() {
+    private FileChooser() {
         super(new BorderLayout());
         //Create the log first, because the action listeners
         //need to refer to it.
@@ -88,7 +88,7 @@ public class FileChooser extends JPanel implements ActionListener {
             }
             log.setCaretPosition(log.getDocument().getLength());
             String path2 = file.getAbsolutePath();
-            if (path == null || path.equals("") || path2 == null || path2.equals(""))
+            if (path == null || path.equals("") || path2.equals(""))
                 JOptionPane.showMessageDialog(null, "You haven't choose a file");
             System.out.println(file.getAbsolutePath());
             CharacterHandler.handleFile(path, path2);

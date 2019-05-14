@@ -9,7 +9,7 @@ public class JTrackSize extends JFrame {
 
     private JEditorPane label;
 
-    public JTrackSize() {
+    private JTrackSize() {
         super("Tracking width and height");
         this.setResizable(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

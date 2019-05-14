@@ -56,8 +56,7 @@ public class Main {
 		japan.setOpaque(true);
 		f.add(japan);
 
-		g2 = (Graphics2D) g;
-		Font font = new Font("Verdana", Font.BOLD, f.getWidth() / 50);
+		Font font = new Font("Verdana", Font.BOLD, f.getWidth() / 150);
 		JMenuBar menuBar = new JMenuBar();
 		f.setJMenuBar(menuBar);
 		menuBar.setBounds(0, 0, 350, 30);
@@ -211,14 +210,14 @@ public class Main {
 
 		JToolBar toolbar = new JToolBar("Toolbar", JToolBar.VERTICAL);
 
-		ImageIcon pen = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\pen.png");
+		ImageIcon pen = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/pen.png");
 		Image image = pen.getImage();
 		Image newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		pen = new ImageIcon(newimage);
 		JButton penbutton = new JButton(pen);
 		penbutton.addActionListener(event -> type = 0);
 		toolbar.add(penbutton);
-		ImageIcon brush = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\brush.png");
+		ImageIcon brush = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/brush.png");
 		image = brush.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		brush = new ImageIcon(newimage);
@@ -226,7 +225,7 @@ public class Main {
 		brushbutton.addActionListener(event -> type = 1);
 		toolbar.add(brushbutton);
 
-		ImageIcon lastic = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\eraser.jpg");
+		ImageIcon lastic = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/eraser.jpg");
 		image = lastic.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		lastic = new ImageIcon(newimage);
@@ -234,7 +233,7 @@ public class Main {
 		lasticbutton.addActionListener(event -> type = 2);
 		toolbar.add(lasticbutton);
 
-		ImageIcon text = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\letter.png");
+		ImageIcon text = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/letter.png");
 		image = text.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		text = new ImageIcon(newimage);
@@ -242,7 +241,7 @@ public class Main {
 		textbutton.addActionListener(event -> type = 3);
 		toolbar.add(textbutton);
 
-		ImageIcon line = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\line.png");
+		ImageIcon line = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/line.png");
 		image = line.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		line = new ImageIcon(newimage);
@@ -250,7 +249,7 @@ public class Main {
 		linebutton.addActionListener(event -> type = 4);
 		toolbar.add(linebutton);
 
-		ImageIcon elips = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\circle.png");
+		ImageIcon elips = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/circle.png");
 		image = elips.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		elips = new ImageIcon(newimage);
@@ -258,7 +257,7 @@ public class Main {
 		elipsbutton.addActionListener(event -> type = 5);
 		toolbar.add(elipsbutton);
 
-		ImageIcon felips = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\filledcircle.png");
+		ImageIcon felips = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/filledcircle.png");
 		image = felips.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		felips = new ImageIcon(newimage);
@@ -266,7 +265,7 @@ public class Main {
 		felipsbutton.addActionListener(event -> type = 6);
 		toolbar.add(felipsbutton);
 
-		ImageIcon rect = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\rectangle.png");
+		ImageIcon rect = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/rectangle.png");
 		image = rect.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		rect = new ImageIcon(newimage);
@@ -274,7 +273,7 @@ public class Main {
 		rectbutton.addActionListener(event -> type = 7);
 		toolbar.add(rectbutton);
 
-		ImageIcon frect = new ImageIcon("E:\\workspace\\PracticeOOP\\src\\ua\\com\\kundikprojects\\Lab5\\assets\\images\\filledrect.png");
+		ImageIcon frect = new ImageIcon("/Users/kyrylo_kundik/IdeaProjects/PracticeOOP/src/ua/com/kundikprojects/Lab5/assets/images/filledrect.png");
 		image = frect.getImage();
 		newimage = image.getScaledInstance(f.getHeight() / 30, f.getHeight() / 30, Image.SCALE_SMOOTH);
 		frect = new ImageIcon(newimage);

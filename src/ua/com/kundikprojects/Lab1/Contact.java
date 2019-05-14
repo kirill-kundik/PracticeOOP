@@ -22,19 +22,19 @@ public class Contact {
 
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public ArrayList<String> getNumbers() {
+    ArrayList<String> getNumbers() {
         return numbers;
     }
 
-    public void setNumbers(ArrayList<String> numbers) {
+    void setNumbers(ArrayList<String> numbers) {
         this.numbers = numbers;
     }
 

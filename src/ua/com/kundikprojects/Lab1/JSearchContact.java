@@ -2,10 +2,8 @@ package ua.com.kundikprojects.Lab1;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
-public class JSearchContact extends JFrame {
+class JSearchContact extends JFrame {
 
     private JTextField jTextField1;
     private JTextField jTextField2;

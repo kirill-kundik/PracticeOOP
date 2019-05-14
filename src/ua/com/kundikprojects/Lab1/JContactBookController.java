@@ -6,41 +6,19 @@ public class JContactBookController {
 
     private ArrayList<Contact> contacts;
 
-    public JContactBookController(ArrayList<Contact> contacts) {
-        this.contacts = contacts;
+    JContactBookController() {
+        this.contacts = new ArrayList<>();
     }
 
-    public JContactBookController() {
-        this.contacts = new ArrayList<Contact>();
-    }
-
-    public JContactBookController(Contact contact) {
-        this();
-        this.contacts.add(contact);
-    }
-
-    public ArrayList<Contact> getContacts() {
+    ArrayList<Contact> getContacts() {
         return contacts;
     }
 
-    public void setContacts(ArrayList<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    public void addContact(Contact contact) {
+    void addContact(Contact contact) {
         this.contacts.add(contact);
     }
 
-    public Contact getContact(int index) {
-        return contacts.get(index);
-    }
-
-    public void editContact(int index, String name, ArrayList<String> numbers) {
-        this.contacts.get(index).setName(name);
-        this.contacts.get(index).setNumbers(numbers);
-    }
-
-    public void editContactByName (String nameOld, String nameNew, ArrayList<String> numbers) {
+    void editContactByName(String nameOld, String nameNew, ArrayList<String> numbers) {
         for (Contact contact : contacts)
             if (contact.getName().equals(nameOld)) {
                 contact.setName(nameNew);
@@ -49,11 +27,7 @@ public class JContactBookController {
             }
     }
 
-    public void deleteContact(int index) {
-        this.contacts.remove(index);
-    }
-
-    public void deleteContactByName (String name) {
+    void deleteContactByName(String name) {
         for (Contact contact : contacts)
             if (contact.getName().equals(name)) {
                 contacts.remove(contact);
@@ -61,7 +35,7 @@ public class JContactBookController {
             }
     }
 
-    public ArrayList<Contact> searchByName (String name) {
+    ArrayList<Contact> searchByName(String name) {
         ArrayList<Contact> result = new ArrayList<>();
 
         for (Contact contact : contacts)
@@ -71,7 +45,7 @@ public class JContactBookController {
         return result;
     }
 
-    public ArrayList<Contact> searchByNumber (String number) {
+    ArrayList<Contact> searchByNumber(String number) {
         ArrayList<Contact> result = new ArrayList<>();
 
         System.out.println("Here");

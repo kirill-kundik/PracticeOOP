@@ -3,21 +3,18 @@ package ua.com.kundikprojects.Lab1;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class JContactBook extends JFrame {
 
     private static JTable jTable;
 
-    private static int rowCounter = 0;
     private static int selectedRow;
     private static DefaultTableModel model;
 
     private static JContactBookController controller;
 
-    public JContactBook() {
+    private JContactBook() {
 
         super("Contact Book");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -64,27 +61,25 @@ public class JContactBook extends JFrame {
         this.setVisible(true);
     }
 
-    public static void addEntry(Contact contact) {
+    static void addEntry(Contact contact) {
         controller.addContact(contact);
         model.addRow(new Object[]{contact.getName(), contact.getNumbers().toString()});
-        rowCounter++;
 
         System.out.println(controller.toString());
     }
 
-    public static void editEntry(Contact contact) {
+    static void editEntry(Contact contact) {
         controller.editContactByName((String) model.getValueAt(getSelectedRow(), 0), contact.getName(), contact.getNumbers());
         model.setValueAt(contact.getName(), getSelectedRow(), 0);
         model.setValueAt(contact.getNumbers().toString(), getSelectedRow(), 1);
     }
 
-    public static void removeEntry() {
+    private static void removeEntry() {
         controller.deleteContactByName((String) model.getValueAt(getSelectedRow(), 0));
         model.removeRow(getSelectedRow());
-        rowCounter--;
     }
 
-    public static int getSelectedRow() {
+    private static int getSelectedRow() {
         jTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         ListSelectionModel rowSel = jTable.getSelectionModel();
@@ -106,17 +101,15 @@ public class JContactBook extends JFrame {
 
         for (int i = model.getRowCount() - 1; i >= 0; --i)
             model.removeRow(i);
-        rowCounter = 0;
     }
 
-    public static void update() {
+    private static void update() {
         removeAllRows();
         for (Contact contact : controller.getContacts())
             model.addRow(new Object[]{contact.getName(), contact.getNumbers().toString()});
-        rowCounter = controller.getContacts().size();
     }
 
-    public static void searchedEntry(String name, String number) {
+    static void searchedEntry(String name, String number) {
         removeAllRows();
 
         ArrayList<Contact> contacts;
@@ -125,7 +118,6 @@ public class JContactBook extends JFrame {
         else
             contacts = controller.searchByName(name);
 
-        rowCounter = contacts.size();
         for (Contact contact : contacts)
             model.addRow(new Object[]{contact.getName(), contact.getNumbers().toString()});
     }
